@@ -23,7 +23,7 @@ from database import init_db, seed_sample_data, get_connection
 from moderation_bot import audit_video_submission, extract_video_metadata
 from verification_bot import verify_like_interaction, verify_comment_interaction
 
-PORT = 8080
+PORT = int(os.environ.get("PORT","8080"))
 PUBLIC_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public")
 
 # In-memory session tracking for active user
@@ -657,9 +657,9 @@ class LPURequestHandler(BaseHTTPRequestHandler):
 def run_server():
     init_db()
     seed_sample_data()
-    server_address = ("127.0.0.1", PORT)
+    server_address = ("0.0.0.0", PORT)
     httpd = ThreadingHTTPServer(server_address, LPURequestHandler)
-    print(f"Helping Hand of LPU running at http://localhost:{PORT}")
+    print(f"Helping Hand of LPU running on port {PORT}")
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
