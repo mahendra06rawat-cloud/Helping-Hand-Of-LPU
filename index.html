@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helping Hand of LPU | University Project Mutual Engagement Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="container bar-content">
+      <span class="pulse-dot"></span>
+      <span><strong>Lovely Professional University</strong> • Term Project Video Criteria Assistance Pool • 100% Peer Verified & AI Moderated</span>
+      <button class="text-btn" onclick="openModal('modal-bot-watchtower')">🤖 Live Bot Watchtower &rarr;</button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-content">
+      <div class="brand">
+        <div class="brand-crest">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">Helping Hand <span class="brand-sub">of LPU</span></div>
+          <div class="brand-tagline">Student-to-Student Project Criteria Network</div>
+        </div>
+      </div>
+
+      <!-- CRITERIA STATUS BAR -->
+      <div class="nav-right">
+        <div class="criteria-meter-card" onclick="openModal('modal-upload')" title="Click to view criteria details or upload">
+          <div class="criteria-header">
+            <span class="criteria-badge" id="nav-eligibility-badge">Checking...</span>
+            <span class="criteria-label">Upload Criteria Meter</span>
+          </div>
+          <div class="criteria-counters">
+            <span class="counter-item"><i class="icon-heart">❤️</i> <strong id="nav-likes-count">0/10</strong> Likes</span>
+            <span class="counter-divider">|</span>
+            <span class="counter-item"><i class="icon-chat">💬</i> <strong id="nav-comments-count">0/5</strong> Comments</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="nav-progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <button class="btn btn-outline btn-sm" onclick="openModal('modal-pay')" id="nav-vip-btn">
+          ⚡ Instant Pass
+        </button>
+        <button class="btn btn-primary" onclick="openUploadFlow()">
+          + Upload Video
+        </button>
+        
+        <!-- USER PROFILE PILL -->
+        <div class="user-pill" onclick="openModal('modal-switch-user')" id="user-pill-trigger">
+          <div class="avatar" id="nav-user-avatar">?</div>
+          <div class="user-details-mini">
+            <div class="user-name-mini" id="nav-user-name">Loading...</div>
+            <div class="user-reg-mini" id="nav-user-reg">...</div>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-pill">
+          <span class="badge-accent">ACADEMIC YEAR 2026</span>
+          <span>Struggling to reach video views, likes & comments for your project marks?</span>
+        </div>
+        <h1>Boost Your LPU Project Video with <span>Fair Peer Exchange</span>.</h1>
+        <p>
+          University course projects now evaluate social media engagement metrics. We built <strong>Helping Hand of LPU</strong> so students can mutually support each other's submissions without fake bots or expensive marketing agencies.
+        </p>
+
+        <!-- 2-WAY RULES EXPLAINER -->
+        <div class="rules-box">
+          <div class="rule-card">
+            <div class="rule-num">Step 1</div>
+            <div class="rule-info">
+              <strong>Free Peer Route:</strong> Like 10 and Comment on 5 peer videos to earn your 1 video upload credit.
+            </div>
+          </div>
+          <div class="rule-divider-text">OR</div>
+          <div class="rule-card rule-card-vip">
+            <div class="rule-num rule-num-vip">⚡</div>
+            <div class="rule-info">
+              <strong>Instant Pass:</strong> Running out of time before submission deadline? Pay ₹49 to bypass & upload immediately.
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary btn-lg" onclick="openUploadFlow()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Upload Project Video
+          </button>
+          <button class="btn btn-secondary btn-lg" onclick="scrollToFeed()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Help Peers & Earn Credits
+          </button>
+        </div>
+      </div>
+
+      <!-- BOT GUARANTEE BADGES CARD -->
+      <div class="hero-security-card">
+        <div class="card-glow"></div>
+        <div class="bot-header">
+          <div class="bot-icon-cluster">
+            <div class="bot-sphere bot-sphere-safety">🛡️</div>
+            <div class="bot-sphere bot-sphere-verify">🤖</div>
+          </div>
+          <div>
+            <h3>Dual-Bot Protection System</h3>
+            <p>Guarantees genuine university academic standards</p>
+          </div>
+        </div>
+
+        <div class="bot-features-list">
+          <div class="bot-feature-item">
+            <div class="feature-icon">🔍</div>
+            <div>
+              <strong>1. AI Content Moderation Bot</strong>
+              <p>Pre-screens video URLs for vulgarity, NSFW elements, abusive language, scams & non-academic spam before publishing.</p>
+            </div>
+          </div>
+          <div class="bot-feature-item">
+            <div class="feature-icon">⏱️</div>
+            <div>
+              <strong>2. Engagement Verification Bot</strong>
+              <p>Tracks actual watch duration, verifies genuine peer comments, and prevents auto-clickers or fake single-word spam.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-mini-strip">
+          <div class="stat-mini">
+            <span class="stat-num" id="stat-projects">0</span>
+            <span class="stat-lbl">Active Projects</span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-num" id="stat-likes">0</span>
+            <span class="stat-lbl">Likes Exchanged</span>
+          </div>
+          <div class="stat-mini">
+            <span class="stat-num" id="stat-vulgarity">0</span>
+            <span class="stat-lbl">Vulgarity Blocked</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE COMMUNITY TASK FEED -->
+  <main class="container main-feed-section" id="community-feed">
+    
+    <div class="feed-header-row">
+      <div>
+        <h2>Active LPU Project Videos Needing Help</h2>
+        <p class="feed-sub">Watch, like, and review fellow student projects to fill your criteria bar!</p>
+      </div>
+      
+      <div class="feed-controls">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="search-input" placeholder="Search by course code (e.g. CSE423), title..." oninput="handleSearch(this.value)">
+        </div>
+
+        <button class="btn btn-outline btn-sm" onclick="refreshVideos()">
+          ↻ Refresh Feed
+        </button>
+      </div>
+    </div>
+
+    <!-- SCHOOL FILTER PILLS -->
+    <div class="filter-pills-row" id="school-filters">
+      <button class="filter-pill active" onclick="filterBySchool('All')">All Schools</button>
+      <button class="filter-pill" onclick="filterBySchool('Computer Science')">💻 CSE / IT</button>
+      <button class="filter-pill" onclick="filterBySchool('Business')">📊 Mittal Business School</button>
+      <button class="filter-pill" onclick="filterBySchool('Mechanical')">⚙️ Mechanical & Robotics</button>
+      <button class="filter-pill" onclick="filterBySchool('Computer Applications')">☁️ Computer Applications</button>
+      <button class="filter-pill" onclick="filterBySchool('Bioengineering')">🧬 Bioengineering</button>
+    </div>
+
+    <!-- VIDEOS GRID -->
+    <div class="videos-grid" id="videos-grid">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading active student projects from LPU network...</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. ENGAGE / SUPPORT VIDEO MODAL -->
+  <div class="modal-overlay" id="modal-engage">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="badge-tag" id="modal-engage-course">CSE423</span>
+          <h3 id="modal-engage-title">Project Video Review</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-engage')">&times;</button>
+      </div>
+
+      <div class="modal-body engage-grid">
+        <!-- LEFT: VIDEO EMBED / PREVIEW -->
+        <div class="video-preview-col">
+          <div class="video-container" id="modal-video-container">
+            <!-- Embed dynamically loaded -->
+          </div>
+          
+          <div class="video-meta-block">
+            <div class="meta-row">
+              <span class="meta-student">By <strong id="modal-engage-student">Aarav Sharma</strong> (<span id="modal-engage-reg">12108492</span>)</span>
+              <span class="meta-deadline">Deadline: <strong id="modal-engage-deadline">Nov 5</strong></span>
+            </div>
+            <p class="video-desc" id="modal-engage-desc"></p>
+          </div>
+
+          <!-- BOT REAL-TIME WATCHTIME VERIFICATION -->
+          <div class="watch-verification-box" id="watch-box">
+            <div class="watch-header">
+              <span class="bot-badge">🛡️ Engagement Verification Bot</span>
+              <span class="timer-display" id="watch-timer">Watching: 0s / 5s required</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill timer-fill" id="watch-progress-fill" style="width: 0%"></div>
+            </div>
+            <p class="timer-note">To prevent bots and maintain genuine university engagement, please view for 5 seconds before liking.</p>
+          </div>
+
+          <!-- LIKE ACTION ROW -->
+          <div class="like-action-row">
+            <button class="btn btn-like" id="modal-like-btn" onclick="submitLike()">
+              <span class="like-icon">❤️</span> Like Project (+1 Credit)
+            </button>
+            <div class="bot-verify-chip" id="like-status-chip">
+              <span>Ready for interaction</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: COMMENTS & PEER REVIEW -->
+        <div class="comments-col">
+          <h4>Peer Academic Feedback (<span id="modal-comment-count">0</span>)</h4>
+          <p class="section-hint">Post a constructive comment (min 12 chars) to earn +1 comment credit.</p>
+          
+          <!-- COMMENT INPUT -->
+          <div class="comment-input-box">
+            <textarea id="comment-textarea" placeholder="E.g. Great explanation of the sensor calibration! The schematic at 2:15 was very helpful." rows="3" oninput="updateCommentBotPreview(this.value)"></textarea>
+            
+            <div class="comment-bot-live-check" id="comment-bot-live-check">
+              <span class="check-text">Bot Pre-Check: Enter at least 12 characters of genuine feedback</span>
+            </div>
+
+            <div class="comment-submit-row">
+              <span class="char-count" id="comment-char-count">0 / 12 min</span>
+              <button class="btn btn-primary btn-sm" id="post-comment-btn" onclick="submitComment()">
+                💬 Post Verified Review
+              </button>
+            </div>
+          </div>
+
+          <!-- EXISTING COMMENTS LIST -->
+          <div class="comments-list" id="modal-comments-list">
+            <!-- Dynamic comments -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. UPLOAD VIDEO MODAL (WITH CRITERIA GATE + AI MODERATION SCAN) -->
+  <div class="modal-overlay" id="modal-upload">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>Submit Project Video for Marks Criteria</h3>
+          <p class="modal-sub">Add your YouTube/Instagram/LinkedIn link to receive peer views, likes & comments.</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-upload')">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- GATE CHECK BANNER (SHOWN IF USER HASN'T MET 10 LIKES & 5 COMMENTS AND HAS NO PAID PASS) -->
+        <div class="gate-warning-banner" id="upload-gate-banner" style="display: none;">
+          <div class="gate-icon">🔒</div>
+          <div class="gate-details">
+            <h4>Upload Locked — Complete Criteria or Use Instant Pass</h4>
+            <p id="gate-message-text">You must like 10 peer videos and comment on 5 videos before submitting your own.</p>
+            <div class="gate-options-row">
+              <button class="btn btn-secondary btn-sm" onclick="closeModal('modal-upload'); scrollToFeed();">
+                ❤️ Go to Feed to Like & Comment
+              </button>
+              <button class="btn btn-primary btn-sm" onclick="closeModal('modal-upload'); openModal('modal-pay');">
+                ⚡ Unlock with ₹49 Instant Pass
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM (ENABLED IF ELIGIBLE) -->
+        <form id="upload-form" onsubmit="event.preventDefault(); submitVideoUpload();">
+          <div class="form-group">
+            <label for="video-url">Video URL (YouTube Watch / Shorts, Instagram Reel, LinkedIn) *</label>
+            <input type="url" id="video-url" required placeholder="https://www.youtube.com/watch?v=..." oninput="handleUrlInput(this.value)">
+            <small class="form-hint">AI Content Moderation Bot will automatically inspect this link.</small>
+          </div>
+
+          <div class="form-group">
+            <label for="video-title">Project Video Title *</label>
+            <input type="text" id="video-title" required placeholder="e.g. Smart Irrigation System using IoT & ESP8266 - CSE326">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="video-course">Course Code *</label>
+              <input type="text" id="video-course" required placeholder="e.g. CSE423, MGT518">
+            </div>
+            <div class="form-group">
+              <label for="video-section">Section / Group</label>
+              <input type="text" id="video-section" placeholder="e.g. K21AB">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="video-desc">Project Description & Evaluation Focus</label>
+            <textarea id="video-desc" rows="3" placeholder="Briefly describe what your video demonstrates for the university viva..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="video-target-likes">Target Likes Needed</label>
+              <input type="number" id="video-target-likes" value="50" min="10" max="500">
+            </div>
+            <div class="form-group">
+              <label for="video-target-comments">Target Comments Needed</label>
+              <input type="number" id="video-target-comments" value="20" min="5" max="200">
+            </div>
+          </div>
+
+          <!-- AI SCANNER RADAR BOX -->
+          <div class="moderation-scan-box" id="moderation-scanner" style="display: none;">
+            <div class="scanner-header">
+              <div class="scanner-spinner"></div>
+              <span><strong>AI Content Moderation Bot</strong> Scanning in Progress...</span>
+            </div>
+            <div class="scanner-steps">
+              <div class="scan-step" id="step-url">✓ Validating URL format & platform origin</div>
+              <div class="scan-step" id="step-vulgarity">⌛ Scanning metadata for vulgarity, adult, and offensive terms</div>
+              <div class="scan-step" id="step-academic">⌛ Evaluating academic compliance with LPU rubric</div>
+            </div>
+          </div>
+
+          <!-- MODERATION FEEDBACK DISPLAY -->
+          <div class="moderation-feedback" id="moderation-alert" style="display: none;"></div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-upload')">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-upload">
+              🛡️ Run AI Bot Scan & Publish
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. INSTANT PASS / PAYMENT MODAL -->
+  <div class="modal-overlay" id="modal-pay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="badge-accent">VIP PASS OPTION</span>
+          <h3>Instant Upload Pass (Skip 10 Likes & 5 Comments)</h3>
+          <p class="modal-sub">In a hurry before your university submission deadline? Support the server and unlock upload immediately.</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-pay')">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="pricing-plans-grid">
+          <div class="plan-card selected" id="plan-single">
+            <div class="plan-tag">Most Popular</div>
+            <h4>Single Project Boost</h4>
+            <div class="plan-price">₹49</div>
+            <ul class="plan-perks">
+              <li>✓ Instant 1 Video Upload Permission</li>
+              <li>✓ Skip 10 likes & 5 comments requirement</li>
+              <li>✓ Priority placement in student feed</li>
+              <li>✓ AI Bot Moderation & Verification</li>
+            </ul>
+            <button class="btn btn-primary btn-block" onclick="selectPlan('Single Boost', 49)">Select Plan</button>
+          </div>
+
+          <div class="plan-card" id="plan-semester">
+            <h4>Semester All-Access</h4>
+            <div class="plan-price">₹99</div>
+            <ul class="plan-perks">
+              <li>✓ Upload up to 3 Project Videos</li>
+              <li>✓ Skip all mutual like/comment tasks</li>
+              <li>✓ Gold verified badge on videos</li>
+              <li>✓ Guaranteed criteria reach assist</li>
+            </ul>
+            <button class="btn btn-outline btn-block" onclick="selectPlan('Semester All-Access', 99)">Select Plan</button>
+          </div>
+        </div>
+
+        <!-- MOCK UPI QR PAYMENT BOX -->
+        <div class="upi-payment-box">
+          <div class="upi-left">
+            <div class="qr-mock">
+              <!-- SVG QR CODE MOCK -->
+              <svg viewBox="0 0 100 100" width="110" height="110">
+                <rect width="100" height="100" fill="#ffffff" rx="8"/>
+                <rect x="10" y="10" width="25" height="25" fill="#111827"/>
+                <rect x="15" y="15" width="15" height="15" fill="#ffffff"/>
+                <rect x="18" y="18" width="9" height="9" fill="#111827"/>
+                
+                <rect x="65" y="10" width="25" height="25" fill="#111827"/>
+                <rect x="70" y="15" width="15" height="15" fill="#ffffff"/>
+                <rect x="73" y="18" width="9" height="9" fill="#111827"/>
+                
+                <rect x="10" y="65" width="25" height="25" fill="#111827"/>
+                <rect x="15" y="70" width="15" height="15" fill="#ffffff"/>
+                <rect x="18" y="73" width="9" height="9" fill="#111827"/>
+
+                <rect x="42" y="15" width="8" height="18" fill="#f37021"/>
+                <rect x="42" y="42" width="16" height="16" fill="#111827"/>
+                <rect x="65" y="42" width="8" height="18" fill="#111827"/>
+                <rect x="42" y="68" width="25" height="8" fill="#111827"/>
+                <rect x="75" y="75" width="15" height="15" fill="#f37021"/>
+              </svg>
+            </div>
+            <div class="upi-apps-icons">
+              <span>GPay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>BHIM</span>
+            </div>
+          </div>
+
+          <div class="upi-right">
+            <div class="upi-id-badge">
+              <span>UPI ID:</span> <strong>helpinghand.lpu@okhdfcbank</strong>
+            </div>
+            <p class="upi-instructions">Scan with any UPI App or click the simulator below to confirm payment test immediately.</p>
+            <button class="btn btn-success btn-block" onclick="executeMockPayment()">
+              💳 Simulate Successful Payment (₹<span id="pay-amount-display">49</span>)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. BOT WATCHTOWER & SANDBOX MODAL -->
+  <div class="modal-overlay" id="modal-bot-watchtower">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="bot-badge">LIVE SURVEILLANCE</span>
+          <h3>AI Bot Watchtower & Inspection Terminal</h3>
+          <p class="modal-sub">Transparent monitoring of the Content Moderation Bot and Engagement Verification Bot.</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-bot-watchtower')">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- BOT TABS -->
+        <div class="filter-pills-row">
+          <button class="filter-pill active" id="tab-btn-mod" onclick="switchBotTab('moderation')">🛡️ Content Moderation Logs</button>
+          <button class="filter-pill" id="tab-btn-ver" onclick="switchBotTab('verification')">⏱️ Engagement Verification Logs</button>
+          <button class="filter-pill" id="tab-btn-test" onclick="switchBotTab('tester')">🧪 Test Bot Sandbox</button>
+        </div>
+
+        <!-- TAB 1: MODERATION LOGS -->
+        <div id="bot-tab-moderation" class="bot-tab-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Title / Video</th>
+                  <th>Vulgarity Score</th>
+                  <th>Academic Score</th>
+                  <th>Verdict</th>
+                </tr>
+              </thead>
+              <tbody id="table-mod-logs">
+                <!-- Dynamic rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 2: VERIFICATION LOGS -->
+        <div id="bot-tab-verification" class="bot-tab-content" style="display: none;">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Student</th>
+                  <th>Type</th>
+                  <th>Confidence</th>
+                  <th>Bot Signature & Reason</th>
+                </tr>
+              </thead>
+              <tbody id="table-ver-logs">
+                <!-- Dynamic rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TAB 3: TESTER SANDBOX -->
+        <div id="bot-tab-tester" class="bot-tab-content" style="display: none;">
+          <div class="sandbox-box">
+            <h4>Live AI Vulgarity & Academic Suitability Tester</h4>
+            <p>Try submitting safe academic text vs. vulgar/spam text to see how the bot evaluates it in real-time:</p>
+            <div class="form-group">
+              <label>Test Video Title / Description</label>
+              <input type="text" id="test-bot-input" placeholder="e.g. Free adult video hack OR Computer Vision Object Detection Project">
+            </div>
+            <div class="tester-quick-chips">
+              <button class="chip" onclick="setTestSample('academic')">Load Safe Academic Sample</button>
+              <button class="chip chip-danger" onclick="setTestSample('vulgar')">Load Vulgar / Offensive Sample</button>
+              <button class="chip chip-warning" onclick="setTestSample('spam')">Load Commercial Scam Sample</button>
+            </div>
+            <button class="btn btn-primary" onclick="runSandboxBotCheck()" style="margin-top: 12px;">Run AI Bot Inspection</button>
+
+            <div class="sandbox-result" id="sandbox-result-box" style="display: none;">
+              <!-- Results rendered here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. SWITCH USER / PERSONA MODAL -->
+  <div class="modal-overlay" id="modal-switch-user">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3>Switch LPU Student Persona</h3>
+          <p class="modal-sub">Experience the platform from different student accounts or register yourself.</p>
+        </div>
+        <button class="modal-close" onclick="closeModal('modal-switch-user')">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="persona-list" id="persona-list">
+          <!-- Dynamically populated personas -->
+        </div>
+
+        <div class="divider-text">OR REGISTER NEW STUDENT</div>
+
+        <form id="register-student-form" onsubmit="event.preventDefault(); registerNewStudent();">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Registration Number *</label>
+              <input type="text" id="new-reg-no" required placeholder="e.g. 12219481">
+            </div>
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="new-name" required placeholder="e.g. Harpreet Kaur">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>School *</label>
+            <select id="new-school">
+              <option value="School of Computer Science & Engineering">School of Computer Science & Engineering</option>
+              <option value="Mittal School of Business">Mittal School of Business</option>
+              <option value="School of Mechanical Engineering">School of Mechanical Engineering</option>
+              <option value="School of Computer Applications">School of Computer Applications</option>
+              <option value="School of Bioengineering & Biosciences">School of Bioengineering & Biosciences</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Course Name</label>
+            <input type="text" id="new-course" placeholder="e.g. B.Tech CSE, MBA, MCA">
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Register & Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- SCRIPTS -->
+  <script src="app.js"></script>
+</body>
+</html>
